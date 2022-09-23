@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta charset="UTF-8"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"> -->
+
+    <!-- jQuery library -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script> -->
+
+    <!-- Popper JS -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> -->
+
+    <!-- Latest compiled JavaScript -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script> -->
+
+
+    <style>
+        body {
+            background: #00000045 !important;
+        }
+
+        label {
+            display: inline-block;
+            margin-bottom: 0.5rem;
+            font-size: 20px;
+            font-weight: 700;
+            color: #058dfb;
+            text-align: justify;
+        }
+
+        .mx-auto {
+            background: #058dfb;
+            border: 1px solid #fff;
+            color: #fff;
+            font-size: 18px;
+            border-radius: 6px;
+            text-align: justify;
+
+        }
+
+
+        input#name[type] {
+            color: #058dfb;
+            font-size: 20px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+
+        div.shadow {
+            color: #058dfb;
+            font-size: 20px;
+            text-align: center;
+            font-weight: 700;
+            height: 100px;
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="container ">
+        <div class="row mt-5">
+
+            <div class="col-10 ">
+                <label for=""> Input the Name / First value of person</label>
+                <input class="w-100 shadow p-4 mb-4 bg-white " type="text" id="name">
+            </div>
+            <div class="col-2">
+
+
+                <button class=" mx-auto float-right p-3 mt-5" type="button" onclick="getinfo()"> Get info </button>
+
+            </div>
+
+
+            <div class="col-6">
+                <div class="shadow p-4 mb-4 bg-white w-100" name="" id="display">
+                    Distribution result by name
+                </div>
+
+            </div>
+
+            <div class="col-6">
+                <div class="shadow p-4 mb-4 bg-white w-100" name="" id="dis">
+                    Distribution Result by value
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <script>
+
+        const apple = [
+
+            {
+                name: 'ram',
+                get: '400 , 400 , 200',
+                getprice: 400,
+                getprice: 400
+
+            },
+
+
+            {
+                name: 'sham',
+                get: "300 , 300",
+                getprice: 300,
+                getprice: 300
+            },
+
+            {
+                name: 'rahim',
+                get: '200 , 100 ,100',
+                getprice: 100,
+                getprice: 100,
+                getprice: 200
+
+            }
+
+        ]
+
+        const input = document.getElementById('name');
+        const display = document.getElementById('display')
+        const displays = document.getElementById('dis');
+
+
+        function getinfo() {
+
+            for (const data of apple) {
+
+                if (input.value == data.name) {
+                    display.innerText = data.get;
+
+                }
+                else if (input.value == data.getprice) {
+                    displays.innerText = data.name;
+
+                }
+
+                // else if (input.value != data.getprice && input.value != data.name) {
+                //     alert("Data not found")
+
+                // }
+
+            }
+
+
+        }
+
+
+        // const apples=100;
+        // const ram=50;
+        // const sham=30;
+        // const rahim=20;
+        // four=400+gm;
+        // three=300+gm;
+        // two=200+gm;
+        // one=100+gm;
+        // function apples(){
+        // }a
+
+        // const hundred = 100 + "gm";
+        // const two_hundred = 200 + "gm";
+        // const three_hundred = 300 + "gm";
+        // const four_hundred = 400 + "gm";
+        // const per="%";
+
+        //             if (ram * total_price / 100) {
+        // console.log(`${four_hundred} , ${four_hundred} , ${two_hundred} , ${ram}${per}`)
+
+
+        // }
+
+
+        var total_price = 100;
+        var total_weight = 2000;
+        function appdata(ram, sham, rahim) {
+            // ram
+
+            const ram_get_total_weight = total_weight * ram / total_price;
+            console.log(ram_get_total_weight + "( RAM)")
+            const four_100_gm = ram_get_total_weight / 100 * 40;
+            const two_100_gm = ram_get_total_weight / 100 * 20;
+            console.log(`RAM:-- ${four_100_gm}, ${four_100_gm}, ${two_100_gm}`)
+
+            //  sham
+
+            const sham_get_total_weight = total_weight * sham / total_price;
+            console.log(sham_get_total_weight + " (SHAM)");
+            const three_100_gm = sham_get_total_weight / 2;
+            console.log(`Sham:-- ${three_100_gm} ,${three_100_gm}  `);
+
+            // rahim
+
+            const rahim_get_total_weigth = total_weight * rahim / total_price;
+            const two_100_gms = rahim_get_total_weigth / 2;
+            console.log(rahim_get_total_weigth + " (RAHIM)")
+            const one_100_gm = two_100_gms / 2;
+            console.log(`Rahim:-- ${two_100_gms}, ${one_100_gm}, ${one_100_gm}`)
+
+
+        }
+
+        appdata(50, 30, 20)
+
+        const dataaa=fetch('http://localhost:5000/');
+
+        
+
+        
+    </script>
+
+</body>
+
+</html>
